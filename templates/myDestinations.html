@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Destinations</title>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">MVP</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/destinations">Destinations</a>
+            
+            {% if current_user.is_authenticated %}
+                <a href="/mydestinations">My Destinations</a>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            {% endif %}
+        </div>
+    </nav>       
+
+        <!-- My Destinations Section -->
+        <section class="destinations">
+            <h2>My Destinations</h2>
+            
+            {% if destinations %}
+                <div class="destination-cards">
+                    {% for destination in destinations %}
+                    <div class="destination-card">
+                        <div class="destination-card-image">
+                            {% if destination.image_filename %}
+                            <img src="{{ url_for('static', filename='images/' + destination.image_filename) }}" alt="Image of {{ destination.name }}" width="100%">
+                            {% else %}
+                            <img src="/static/images/default.jpg" alt="No Image Available" width="100%">
+                            {% endif %}
+                        </div>
+                        <div class="destination-card-info">
+                            <h3>{{ destination.name }}</h3>
+                            <p>{{ destination.description }}</p>
+                            <a href="{{ url_for('explore_destination', destination_id=destination.id) }}" class="card-btn">Explore</a>
+                        </div>                        
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>You haven't created any destinations yet.</p>
+            {% endif %}
+        </section>
+
+    <div style="height: 350px;"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; IAB207. n11412194. Emma Zhang. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

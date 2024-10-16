@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MVP</title>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <a href="/" class="logo">MVP</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/destinations">Destinations</a>
+                
+                {% if current_user.is_authenticated %}
+                    <a href="/mydestinations">My Destinations</a>
+                    <a href="/logout">Logout</a>
+                {% else %}
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                {% endif %}
+            </div>
+        </nav>                
+
+        <!-- Login Section -->
+        <section class="register-section">
+            <div class="register-form-container">
+                <h2>Login to Your Account</h2>
+                <form action="/login" method="POST">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+        
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+        
+                    <div style="margin-top: 1em;">
+                        <button type="submit" class="form-btn">Login</button>
+                    </div>
+                </form>
+                <p>Don't have an account? <a href="/register">Register here</a>.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; IAB207. n11412194. Emma Zhang. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

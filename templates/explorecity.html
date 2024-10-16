@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Paris - MVP</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <a href="/" class="logo">MVP</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/destinations">Destinations</a>
+                
+                {% if current_user.is_authenticated %}
+                    <a href="/mydestinations">My Destinations</a>
+                    <a href="/logout">Logout</a>
+                {% else %}
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                {% endif %}
+            </div>
+        </nav>        
+
+        <!-- Explore Paris Section -->
+        <section class="explore-paris">
+            <h2>Explore Experiences in Paris</h2>
+
+            <!-- Experience Card for Eiffel Tower -->
+            <div class="experience-card">
+                <div class="experience-card-image">
+                    <img src="/static/images/eiffeltowerImage.jpg" alt="Eiffel Tower">
+                </div>
+                <div class="experience-card-info">
+                    <h3>Eiffel Tower</h3>
+                    <p>Visit the iconic Eiffel Tower and enjoy breathtaking views of the Paris skyline from the observation deck.</p>
+                </div>
+            </div>
+
+            <!-- Experience Card for Louvre Museum -->
+            <div class="experience-card">
+                <div class="experience-card-image">
+                    <img src="/static/images/museumImage.jpg" alt="Louvre Museum">
+                </div>
+                <div class="experience-card-info">
+                    <h3>Louvre Museum</h3>
+                    <p>Discover the world-renowned Louvre Museum, home to thousands of works of art, including the Mona Lisa and the Venus de Milo.</p>
+                </div>
+            </div>
+
+            <!-- Experience Card for Montmartre -->
+            <div class="experience-card">
+                <div class="experience-card-image">
+                    <img src="/static/images/montmarteImage.jpg" alt="Montmartre">
+                </div>
+                <div class="experience-card-info">
+                    <h3>Montmartre</h3>
+                    <p>Wander through the charming streets of Montmartre, visit the Basilica of Sacré-Cœur, and enjoy the artistic vibe of this historic district.</p>
+                </div>
+            </div>
+
+            <!-- Experience Card for Notre-Dame Cathedral -->
+            <div class="experience-card">
+                <div class="experience-card-image">
+                    <img src="/static/images/notredameImage.jpg" alt="Notre-Dame Cathedral">
+                </div>
+                <div class="experience-card-info">
+                    <h3>Notre-Dame Cathedral</h3>
+                    <p>Explore the stunning Notre-Dame Cathedral, a masterpiece of Gothic architecture with impressive stained glass and sculptures.</p>
+                </div>
+            </div>
+
+            <!-- Experience Card for Seine River Cruise -->
+            <div class="experience-card">
+                <div class="experience-card-image">
+                    <img src="/static/images/seineImage.jpg" alt="Seine River Cruise">
+                </div>
+                <div class="experience-card-info">
+                    <h3>Seine River Cruise</h3>
+                    <p>Experience the beauty of Paris from the water with a scenic cruise along the Seine River, passing by iconic landmarks.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; IAB207. n11412194. Emma Zhang. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+

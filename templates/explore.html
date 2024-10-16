@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Paris</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="/" class="logo">MVP</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/destinations">Destinations</a>
+            
+            {% if current_user.is_authenticated %}
+                <a href="/mydestinations">My Destinations</a>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            {% endif %}
+        </div>
+    </nav>    
+
+    <div class="content-wrapper">
+        <!-- Image Section -->
+        <div class="image-section">
+            <h2 class="info">Explore Paris</h2>
+            <p class="info">Discover the beauty and charm of Paris, the City of Lights. From the iconic Eiffel Tower to the historic streets of Montmartre, Paris offers a unique blend of culture, art, and romance.</p>
+            <div class="image-gallery">
+                <img src="/static/images/parisImage1.jpg" alt="Paris Image 1">
+                <img src="/static/images/parisImage.jpg" alt="Paris Image 2">
+                <img src="/static/images/parisImage3.jpg" alt="Paris Image 3">
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h4>Add Your Comment</h4>
+            <form class="mt-4">
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" id="comment" rows="3" placeholder="Write your comment here..."></textarea>
+                </div>
+                <button type="submit" class="btn">Post Comment</button>
+            </form>
+            <h4 class="text-center">Comments</h4>
+            <div class="comments-box">
+                <div class="comment mb-3">
+                    <p><strong>User01:</strong> I love Paris</p>
+                </div>
+                <div class="comment mb-3">
+                    <p><strong>User02:</strong> Baguette</p>
+                </div>
+                <div class="comment mb-3">
+                    <p><strong>User03:</strong> Crossiant</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; IAB207. n11412194. Emma Zhang. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

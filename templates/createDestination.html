@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Destination</title>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+        <nav class="navbar">
+            <a href="/" class="logo">MVP</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/destinations">Destinations</a>
+                
+                {% if current_user.is_authenticated %}
+                    <a href="/mydestinations">My Destinations</a>
+                    <a href="/logout">Logout</a>
+                {% else %}
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                {% endif %}
+            </div>
+        </nav>        
+        
+        <section class="register-section">
+            <div class="register-form-container">
+                <h2>Create Your Destination</h2>
+                <form action="/createDestination" method="POST" enctype="multipart/form-data">
+                    <label for="destination-name">Destination Name:</label>
+                    <input type="text" id="destination-name" name="destination-name" required>
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+
+                    <label for="image">Upload an Image:</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+
+                    <button type="submit" class="form-btn">Create Destination</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; IAB207. n11412194. Emma Zhang. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

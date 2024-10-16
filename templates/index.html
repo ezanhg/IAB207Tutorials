@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVP</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <a href="/" class="logo">MVP</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/destinations">Destinations</a>
+                
+                {% if current_user.is_authenticated %}
+                    <a href="/mydestinations">My Destinations</a>
+                    <a href="/logout">Logout</a>
+                {% else %}
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                {% endif %}
+            </div>
+        </nav>        
+        
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1>Discover Your Next Big Adventure</h1>
+                <p>Explore our top destinations and unique experiences.</p>
+                <a href="#" class="hero-btn">Get Started</a>
+            </div>
+        </header>
+
+        <!-- Destinations Section -->
+        <section class="destinations">
+            <h2>Popular Destinations</h2>
+            <div class="destination-cards">
+                <div class="card">
+                    <img src="/static/images/parisImage.jpg" alt="Paris Image">
+                    <div class="card-info">
+                        <h3>Paris</h3>
+                        <p>The city of art and love.</p>
+                        <a href="/explore" class="card-btn">Explore</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/static/images/tokyoImage.jpg" alt="Paris Image">
+                    <div class="card-info">
+                        <h3>Tokyo</h3>
+                        <p>The city of the future.</p>
+                        <a href="#" class="card-btn">Explore</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/static/images/newyorkImage.jpg" alt="Paris Image">
+                    <div class="card-info">
+                        <h3>New York</h3>
+                        <p>The city that never sleeps.</p>
+                        <a href="#" class="card-btn">Explore</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/static/images/guangzhouImage.png" alt="Paris Image">
+                    <div class="card-info">
+                        <h3>Guangzhou</h3>
+                        <p>The city of eternal prosperity.</p>
+                        <a href="#" class="card-btn">Explore</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/static/images/egyptImage.jpg" alt="Paris Image">
+                    <div class="card-info">
+                        <h3>Egypt</h3>
+                        <p>Land of ancient wonders.</p>
+                        <a href="#" class="card-btn">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; IAB207. n11412194. Emma Zhang. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

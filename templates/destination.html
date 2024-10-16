@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - MVP</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <a href="/" class="logo">MVP</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/destinations">Destinations</a>
+                
+                {% if current_user.is_authenticated %}
+                    <a href="/mydestinations">My Destinations</a>
+                    <a href="/logout">Logout</a>
+                {% else %}
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                {% endif %}
+            </div>
+        </nav>        
+
+        <!-- Destinations Section -->
+        <section class="destinations">
+            <h2>Explore Our Destinations</h2>
+            
+            <!-- Create Destination Button -->
+            <div class="create-destination-button">
+                <a href="/createDestination" class="btn">Create Your Destination</a>
+            </div>
+            
+            <!-- Destination Card for Paris -->
+            <div class="destination-card">
+                <div class="destination-card-image">
+                    <img src="/static/images/parisImage.jpg" alt="Paris Image">
+                </div>
+                <div class="destination-card-info">
+                    <h3>Paris</h3>
+                    <p>Paris: Known as the "City of Light," Paris is renowned for its romantic ambiance, rich history, and iconic landmarks. Visitors flock to see the majestic Eiffel Tower, 
+                        explore the world-famous Louvre Museum, and stroll along the charming streets of Montmartre. With its vibrant art scene, exquisite cuisine, and beautiful gardens, 
+                        Paris offers an enchanting experience that captivates travelers from around the globe.</p>
+                        <a href="/explore" class="card-btn">Explore</a>
+                        <a href="/explorecity.html" class="card-btn">Explore Experiences</a>
+                </div>
+            </div>
+
+            <!-- Wider Horizontal Destination Card for Tokyo -->
+            <div class="destination-card">
+                <div class="destination-card-image">
+                    <img src="/static/images/tokyoImage.jpg" alt="Tokyo Image">
+                </div>
+                <div class="destination-card-info">
+                    <h3>Tokyo</h3>
+                    <p>A dazzling blend of tradition and cutting-edge technology, Tokyo is a vibrant metropolis known for its bustling streets, neon lights, and rich cultural heritage. 
+                        Visitors can explore ancient temples like Senso-ji, indulge in world-class cuisine, and experience the lively atmosphere of districts like Shibuya and Shinjuku. 
+                        With its unique mix of old and new, Tokyo offers an unforgettable experience.</p>
+                    <a class="card-btn">Explore Experiences</a>
+                </div>
+            </div>
+
+            <!-- Wider Horizontal Destination Card for New York -->
+            <div class="destination-card">
+                <div class="destination-card-image">
+                    <img src="/static/images/newyorkImage.jpg" alt="New York Image">
+                </div>
+                <div class="destination-card-info">
+                    <h3>New York</h3>
+                    <p>Often referred to as "The Big Apple," New York City is a bustling hub of culture, art, and innovation. Famous for its iconic skyline, the Statue of Liberty, and Central Park, 
+                        the city is a melting pot of diverse cultures. From Broadway shows to world-class museums like the Metropolitan Museum of Art, New York offers endless opportunities for exploration 
+                        and adventure.</p>
+                    <a class="card-btn">Explore Experiences</a>
+                </div>
+            </div>
+
+            <!-- Wider Horizontal Destination Card for Guangzhou -->
+            <div class="destination-card">
+                <div class="destination-card-image">
+                    <img src="/static/images/guangzhouImage.png" alt="Guangzhou Image">
+                </div>
+                <div class="destination-card-info">
+                    <h3>Guangzhou</h3>
+                    <p>Known as the "City of Eternal Prosperity," Guangzhou is a dynamic city rich in history and culture. Located on the Pearl River, it is famous for its Cantonese cuisine, vibrant markets, 
+                        and stunning architecture. Visitors can explore the historic Chen Clan Ancestral Hall, enjoy the breathtaking views from Canton Tower, and experience the city's lively atmosphere.</p>
+                    <a class="card-btn">Explore Experiences</a>
+                </div>
+            </div>
+
+            <!-- Wider Horizontal Destination Card for Egypt -->
+            <div class="destination-card">
+                <div class="destination-card-image">
+                    <img src="/static/images/egyptImage.jpg" alt="Egypt Image">
+                </div>
+                <div class="destination-card-info">
+                    <h3>Egypt</h3>
+                    <p>Home to one of the world's oldest civilizations, Egypt is a land of ancient wonders and rich cultural heritage. Visitors can marvel at the Great Pyramids of Giza, explore the Valley of the Kings, 
+                        and cruise the majestic Nile River. With its fascinating history, vibrant markets, and stunning landscapes, Egypt offers a unique glimpse into the past.</p>
+                    <a class="card-btn">Explore Experiences</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; IAB207. n11412194. Emma Zhang. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

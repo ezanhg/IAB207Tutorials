@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ destination.name }} - Explore</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="/" class="logo">MVP</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/destinations">Destinations</a>
+            
+            {% if current_user.is_authenticated %}
+                <a href="/mydestinations">My Destinations</a>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            {% endif %}
+        </div>
+    </nav>    
+    
+    <div class="content-wrapper">
+        <!-- Image Section -->
+        <div class="image-section">
+            <h2 class="info">Explore {{ destination.name }}</h2>
+            <p class="info">{{ destination.description }}</p>
+            <div class="image-gallery">
+                {% if destination.image_filename %}
+                    <img src="{{ url_for('static', filename='images/' + destination.image_filename) }}" alt="{{ destination.name }}">
+                {% else %}
+                    <img src="/static/images/default.jpg" alt="No Image Available">
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h4>Add Your Comment</h4>
+            <form action="{{ url_for('explore_destination', destination_id=destination.id) }}" method="POST">
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" name="comment" id="comment" rows="3" placeholder="Write your comment here..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Post Comment</button>
+            </form>
+            <h4 class="text-center">Comments</h4>
+            <div class="comments-box">
+                {% for comment in comments %}
+                <div class="comment mb-3">
+                    <p><strong>{{ comment.user.username }}:</strong> 
+                       {{ comment.timestamp.strftime('%B %d, %Y at %I:%M %p') }}</p>
+                    <p>{{ comment.content }}</p>
+                </div>
+                {% else %}
+                <p>No comments yet. Be the first to comment!</p>
+                {% endfor %}
+            </div>            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; IAB207. n11412194. Emma Zhang. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
